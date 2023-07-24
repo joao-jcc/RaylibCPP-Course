@@ -33,7 +33,6 @@ void read_commands(std::string path, std::vector<Command>& commands) {
 
 
 
-// Escreve as linhas que formam uma espiral quadrada em um arquivo .txt
 int square_spiral(unsigned line_size, unsigned n_points, std::string path) {
      // Open a text file for writing
     std::ofstream output_file(path);
