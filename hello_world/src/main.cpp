@@ -1,7 +1,7 @@
 #include "raylib.h"
 
-const float SCREEN_WIDTH = 800;
-const float SCREEN_HEIGHT = 600;
+const float SCREEN_WIDTH = 500;
+const float SCREEN_HEIGHT = 500;
 const char* SCREEN_TITLE = "Hello World";
 
 int main() {
@@ -16,7 +16,7 @@ int main() {
         BeginDrawing();
             ClearBackground(BLACK);
             // Draw
-            DrawCircle(100, 100, 100, ORANGE);
+            DrawCircle(250, 250, 100, ORANGE);
 
         EndDrawing();
     }

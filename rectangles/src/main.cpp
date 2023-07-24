@@ -1,8 +1,8 @@
 #include "raylib.h"
 #include <iostream>
 
-const float SCREEN_WIDTH = 400;
-const float SCREEN_HEIGHT = 600;
+const float SCREEN_WIDTH = 500;
+const float SCREEN_HEIGHT = 500;
 const char* SCREEN_TITLE = "Rectangle";
 
 void update_direction(bool& up, bool& down, bool& right, bool& left, Rectangle& rec) {
@@ -35,7 +35,7 @@ int main() {
         update_direction(up, down, right, left, rec);
 
         rec.x += left * -0.1 + right * 0.1;
-        rec.y += up * -0.1 + down * 0.1;
+        rec.y += up * -0.05 + down * 0.05;
 
         // <--- Render --->
         BeginDrawing();
