@@ -28,8 +28,13 @@ polygones_sources := $(wildcard polygones/src/*.cpp)
 polygones_objects := $(patsubst polygones/src/%.cpp, polygones/build/%.o, $(polygones_sources))
 polygones_executable := executables/polygones
 
+# Define source files and object files for pixels
+pixels_sources := $(wildcard pixels/src/*.cpp)
+pixels_objects := $(patsubst pixels/src/%.cpp, pixels/build/%.o, $(pixels_sources))
+pixels_executable := executables/pixels
+
 # Default target, compiles and links all executables
-all: hello_world rectangles triangles lines polygones
+all: hello_world rectangles triangles lines polygones pixels
 
 hello_world: create_build_dir $(hello_world_objects)
 	$(CXX) $(hello_world_objects) -o $(hello_world_executable) $(LDFLAGS)
@@ -46,9 +51,12 @@ lines: create_build_dir $(lines_objects)
 polygones: create_build_dir $(polygones_objects)
 	$(CXX) $(polygones_objects) -o $(polygones_executable) $(LDFLAGS)
 
+pixels: create_build_dir $(pixels_objects)
+	$(CXX) $(pixels_objects) -o $(pixels_executable) $(LDFLAGS)
+
 # Create build directory if it doesn't exist
 create_build_dir:
-	mkdir -p hello_world/build rectangles/build triangles/build lines/build polygones/build
+	mkdir -p hello_world/build rectangles/build triangles/build lines/build polygones/build pixels/build
 
 # Compile hello_world source files
 hello_world/build/%.o: hello_world/src/%.cpp
@@ -70,7 +78,11 @@ lines/build/%.o: lines/src/%.cpp
 polygones/build/%.o: polygones/src/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+# Compile pixels source files
+pixels/build/%.o: pixels/src/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
 clean:
 	rm -rf hello_world/build/*.o $(hello_world_executable) rectangles/build/*.o $(rectangles_executable)
 	rm -rf triangles/build/*.o $(triangles_executable) lines/build/*.o $(lines_executable)
-	rm -rf polygones/build/*.o $(polygones_executable)
+	rm -rf polygones/build/*.o $(polygones_executable) pixels/build/*.o $(pixels_executable)

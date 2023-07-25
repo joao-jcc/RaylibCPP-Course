@@ -53,3 +53,12 @@ Repositório para armazenar os programas que desenvolvo em c++ à medida que est
 > <br> <hr> <br>
 > <div align="center">
 >
+> pixels
+> 
+> </div>
+> <p align="center">
+>   <img src="images/pixels.gif"  width="500" height="500">
+> </p>
+> <br> <hr> <br>
+> <div align="center">
+>
